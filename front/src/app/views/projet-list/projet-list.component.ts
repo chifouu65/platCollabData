@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './projet-list.component.html',
-  styleUrl: './projet-list.component.css'
+  styleUrl: './projet-list.component.css',
 })
 export class ProjetListComponent {
-
+  projects = resource();
 }
