@@ -1,0 +1,24 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="example-form">
+  @if(project()) {
+  <mat-form-field class="example-full-width">
+    <mat-label>Id</mat-label>
+    <input [value]="project()._id" matInput />
+  </mat-form-field>
+  }
+  <mat-form-field class="example-full-width">
+    <mat-label>Nom</mat-label>
+    <input formControlName="nom" matInput placeholder="Ex. Pizza" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea
+      formControlName="description"
+      matInput
+      placeholder="Ex. It makes me feel..."
+    ></textarea>
+  </mat-form-field>
+  <div>
+    <button type="submit" [disabled]="form.invalid">Valider</button>
+    <button>Annuler</button>
+  </div>
+</form>

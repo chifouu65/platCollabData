@@ -1,1 +1,44 @@
-<p>projet-list works!</p>
+@defer (when !projects.isLoading()) {
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawerEditCreate class="example-sidenav" mode="side">
+    <app-project-form [project]="idEdit()!" (reload)="projects.reload()" />
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button>Toggle sidenav</button>
+    <p>Project List</p>
+    <button (click)="createProject()">Nouveau Projet</button>
+    <table class="project-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (project of projects.value(); track $index) {
+        <tr>
+          <td>{{ project.nom }}</td>
+          <td>{{ project.description }}</td>
+          <td>
+            <button (click)="editProject(project)" class="action-button">
+              Edit
+            </button>
+            <button (click)="deleteProject(project._id)" class="action-button">
+              Delete
+            </button>
+          </td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="3">No projects available.</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</mat-drawer-container>
+} @loading {
+<p>Loading...</p>
+}

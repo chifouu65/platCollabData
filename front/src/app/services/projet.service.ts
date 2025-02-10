@@ -9,7 +9,7 @@ import { CreateProjectDto } from '../models/create-project.model';
   providedIn: 'root',
 })
 export class ProjetService {
-  private apiUrl = 'http://localhost:3000/projects'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:3000/project'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 

@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.example-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+/* front/src/app/views/projet-list/projet-list.component.css */
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.project-table th,
+.project-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.project-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.project-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.action-button {
+  margin-right: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .project-table {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}

@@ -16,10 +16,10 @@ Développer une plateforme collaborative pour l'annotation de données, permetta
 
 #### 2.1. **Routes API**
 
-- [ ] **Créer les Routes pour les Projets**
+- [x] **Créer les Routes pour les Projets**
 
-  - [ ] Implémenter la route `POST /projects` dans `projects.controller.ts` pour créer un projet.
-  - [ ] Implémenter la route `GET /projects` dans `projects.controller.ts` pour récupérer tous les projets.
+  - [x] Implémenter la route `POST /projects` dans `projects.controller.ts` pour créer un projet.
+  - [x] Implémenter la route `GET /projects` dans `projects.controller.ts` pour récupérer tous les projets.
 
 - [ ] **Créer les Routes pour les Annotations**
   - [ ] Implémenter la route `POST /annotations` pour créer une annotation.
@@ -27,15 +27,15 @@ Développer une plateforme collaborative pour l'annotation de données, permetta
 
 #### 2.2. **Services**
 
-- [ ] **Configurer le Service de Projets**
-  - [ ] Ajouter la logique pour gérer les projets dans `projects.service.ts`.
+- [] **Configurer le Service de Projets**
+  - [x] Ajouter la logique pour gérer les projets dans `projects.service.ts`.
   - [ ] Ajouter la logique pour gérer les annotations dans un nouveau service `annotations.service.ts`.
 
 #### 2.3. **Contrôleurs**
 
 - [ ] **Configurer le Contrôleur de Projets**
 
-  - [ ] Assurer que le contrôleur gère correctement les requêtes dans `projects.controller.ts`.
+  - [x] Assurer que le contrôleur gère correctement les requêtes dans `projects.controller.ts`.
 
 - [ ] **Configurer le Contrôleur d'Annotations**
   - [ ] Créer un nouveau contrôleur `annotations.controller.ts` pour gérer les annotations.
@@ -48,15 +48,15 @@ Développer une plateforme collaborative pour l'annotation de données, permetta
 
 #### 3.1. **Services**
 
-- [ ] **Configurer le Service de Projets**
-  - [ ] Implémenter les méthodes pour interagir avec l'API dans `projet.service.ts`.
+- [x] **Configurer le Service de Projets**
+  - [x] Implémenter les méthodes pour interagir avec l'API dans `projet.service.ts`.
 
 #### 3.2. **Composants**
 
-- [ ] **Créer les Composants**
-  - [ ] Créer le composant pour la liste des projets dans `projet-list.component.ts`.
-  - [ ] Créer le composant pour les détails d'un projet.
-  - [ ] Créer le composant pour l'interface d'annotation.
+- [] **Créer les Composants**
+  - [x] Créer le composant pour la liste des projets dans `projet-list.component.ts`.
+  - [x] Créer le composant pour les détails d'un projet.
+  - [] Créer le composant pour l'interface d'annotation.
 
 #### 3.3. **Interface Utilisateur**
 
