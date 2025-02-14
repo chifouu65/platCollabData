@@ -1,0 +1,43 @@
+@defer (when form()) {
+<form class="bg-white drop-shadow-lg p-4 rounded-2xl" [formValue]="data">
+  <mat-form-field>
+    <mat-label>Type de formset</mat-label>
+    <select matNativeControl [ngModel]="form().type" name="type" matInput>
+      <option value="image">Image</option>
+      <option value="audio">Audio</option>
+      <option value="video">Vidéo</option>
+      <option value="text">Texte</option>
+    </select>
+  </mat-form-field>
+
+  @switch ( form().type ) {
+  <!---->
+  @case('image') {
+  <mat-form-field>
+    <mat-label>Image url</mat-label>
+    <input
+      [ngModel]="form().url"
+      name="url"
+      matInput
+      placeholder="http://image.png"
+      required
+    />
+  </mat-form-field>
+  }
+  <!---->
+
+  @case('text') {
+  <mat-form-field>
+    <mat-label>Texte url</mat-label>
+    <textarea
+      [ngModel]="form().texte"
+      name="texte"
+      matInput
+      placeholder="Ex. It makes me feel..."
+    ></textarea>
+  </mat-form-field>
+  }
+  <!---->
+  }
+</form>
+}

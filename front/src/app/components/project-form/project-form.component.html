@@ -1,24 +1,119 @@
-<form [formGroup]="form" (submit)="onSubmit()" class="example-form">
+<!-- front/src/app/components/project-form/project-form.component.html -->
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="flex flex-col gap-4 justify-center items-center w-full"
+>
   @if(project()) {
-  <mat-form-field class="example-full-width">
+  <mat-form-field>
     <mat-label>Id</mat-label>
-    <input [value]="project()._id" matInput />
+    <input formControlName="_id" matInput />
   </mat-form-field>
   }
-  <mat-form-field class="example-full-width">
+
+  <mat-form-field>
     <mat-label>Nom</mat-label>
-    <input formControlName="nom" matInput placeholder="Ex. Pizza" />
+    <input matInput formControlName="nom" required />
+    @if(hasError('nom')) {
+    <mat-error>{{ getErrorMessage("nom") }}</mat-error>
+    }
   </mat-form-field>
-  <mat-form-field class="example-full-width">
+
+  <mat-form-field>
     <mat-label>Description</mat-label>
-    <textarea
-      formControlName="description"
-      matInput
-      placeholder="Ex. It makes me feel..."
-    ></textarea>
+    <textarea matInput formControlName="description" required></textarea>
+    @if(hasError('description')) {
+    <mat-error>{{ getErrorMessage("description") }}</mat-error>
+    }
   </mat-form-field>
-  <div>
-    <button type="submit" [disabled]="form.invalid">Valider</button>
-    <button>Annuler</button>
+
+  <div class="w-full">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-semibold">Datasets</h3>
+      <button type="button" mat-stroked-button (click)="addDataset()">
+        <mat-icon>add</mat-icon> Ajouter un dataset
+      </button>
+    </div>
+
+    <div formArrayName="datasets">
+      <div
+        *ngFor="let dataset of datasets.controls; let i = index"
+        [formGroupName]="i"
+        class="dataset-container"
+      >
+        <app-dataset
+          [formGroup]="$any(dataset)"
+          (fileSelected)="onFileSelected($event.file, i)"
+        ></app-dataset>
+        <button
+          type="button"
+          mat-icon-button
+          color="warn"
+          (click)="removeDataset(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <div class="button-group">
+      @if(project()) {
+      <button
+        type="button"
+        mat-raised-button
+        color="warn"
+        (click)="delete.emit()"
+      >
+        <mat-icon>delete</mat-icon>
+        Supprimer
+      </button>
+      }
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="!form.valid"
+      >
+        {{ project() ? "Mettre à jour" : "Créer" }}
+      </button>
+      <button type="button" mat-button (click)="onCancel()">Annuler</button>
+    </div>
   </div>
 </form>
+
+<style>
+  .dataset-container {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .form-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .error-summary {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #fff5f5;
+    border: 1px solid #feb2b2;
+    border-radius: 4px;
+    color: #c53030;
+  }
+
+  .error-summary ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+</style>

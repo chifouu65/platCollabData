@@ -1,0 +1,8 @@
+<button
+  mat-raised-button
+  color="primary"
+  [disabled]="!selectedFormat || isExporting"
+  (click)="exportAnnotations()"
+>
+  {{ isExporting ? "Export en cours..." : "Exporter" }}
+</button>

@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .example-sidenav-content {
@@ -37,21 +37,6 @@
 
 .project-table tr:hover {
   background-color: #f1f1f1;
-}
-
-.action-button {
-  margin-right: 5px;
-  padding: 6px 12px;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.action-button:hover {
-  background-color: #0056b3;
 }
 
 @media (max-width: 600px) {

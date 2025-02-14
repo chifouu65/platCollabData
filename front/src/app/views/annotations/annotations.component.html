@@ -1,1 +1,202 @@
-<p>annotations works!</p>
+<div class="tool-section">
+  <h2>Outils d'Annotation</h2>
+  <div class="tools-container flex gap-2">
+    @for (tool of tools; track tool) {
+    <button class="action-button" (click)="setTool(tool.id)">
+      {{ tool.name }}
+    </button>
+    }
+  </div>
+</div>
+
+<!-- Affichage de l'outil sélectionné -->
+<div class="selected-tool">
+  <h3>Outil Sélectionné :</h3>
+  <p>{{ selectedTool() }}</p>
+</div>
+
+<app-canvas>
+  <button class="action-button" color="primary" (click)="saveAnnotations()">
+    <mat-icon>save</mat-icon>
+    Sauvegarder
+  </button>
+</app-canvas>
+
+<!-- Section des annotations en cours -->
+<div class="current-annotations mt-4">
+  <h3 class="text-xl font-bold mb-4">Annotations en cours</h3>
+  @if (getCurrentAnnotations() && getCurrentAnnotations()!.length) {
+  <div class="annotations-list grid gap-2">
+    @for (annotation of getCurrentAnnotations(); track $index) {
+    <div class="annotation-item bg-white p-3 rounded shadow">
+      <div class="flex justify-between items-center">
+        <div class="annotation-type">
+          <span class="font-semibold">{{ annotation.type }}</span>
+          <span
+            class="ml-2 w-4 h-4 inline-block rounded-full"
+            [style.backgroundColor]="annotation.color"
+          >
+          </span>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="actions">
+          @if (selectedAnnotationIndex !== $index) {
+          <button class="action-button" (click)="selectAnnotation($index)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          } @else {
+          <div class="edit-actions flex gap-2">
+            <button class="action-button" (click)="confirmEdit()">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button class="action-button" (click)="cancelEdit()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- Zone d'édition -->
+      @if (selectedAnnotationIndex === $index) {
+      <div
+        class="metadata-editor flex gap-2 items-center mt-2"
+        (click)="$event.stopPropagation()"
+      >
+        <mat-form-field class="w-48">
+          <input matInput #newLabel placeholder="Nouveau label" />
+        </mat-form-field>
+        <button
+          class="action-button"
+          color="primary"
+          (click)="
+            addLabelToAnnotation($index, newLabel.value); newLabel.value = ''
+          "
+          matTooltip="Ajouter le label"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      } @if (annotation.metadata?.labels?.length ||
+      annotation.metadata?.confidence) {
+      <div class="metadata-display mt-2">
+        @if (annotation.metadata?.labels?.length) {
+        <div class="labels flex flex-wrap gap-1 mb-1">
+          @for (label of annotation.metadata?.labels || []; track label) {
+          <span class="bg-gray-100 px-2 py-1 rounded text-sm flex items-center">
+            {{ label }}
+            @if (selectedAnnotationIndex === $index) {
+            <button
+              class="action-button"
+              class="h-4 w-4 ml-1"
+              (click)="removeLabel($index, label)"
+            >
+              <mat-icon class="text-sm">close</mat-icon>
+            </button>
+            }
+          </span>
+          }
+        </div>
+        } @if (annotation.metadata?.confidence !== undefined) {
+        <div class="confidence text-sm text-gray-600">
+          Confiance: {{ annotation.metadata?.confidence }}
+        </div>
+        }
+      </div>
+      }
+    </div>
+    }
+  </div>
+  } @else {
+  <p class="text-gray-500">Aucune annotation en cours</p>
+  }
+</div>
+
+<!-- Remplacer la section des groupes d'annotations -->
+<div class="saved-groups mt-4">
+  <h3 class="text-xl font-bold mb-4">Groupes d'Annotations</h3>
+
+  @if (savedGroups.value()?.length) {
+  <div class="grid gap-4">
+    @for (group of savedGroups.value(); track group._id) {
+    <div class="group-card bg-white p-4 rounded-lg shadow">
+      <div class="group-header flex justify-between items-center mb-3">
+        <h4 class="text-lg font-semibold">{{ group.name }}</h4>
+        <div class="actions flex gap-2">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="exportGroup(group._id!)"
+            matTooltip="Ouvrir les options d'export"
+          >
+            <mat-icon>download</mat-icon>
+            Options d'export
+          </button>
+          <button mat-raised-button color="primary" (click)="loadGroup(group)">
+            <mat-icon>edit</mat-icon>
+            Charger
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteGroup(group._id!)"
+          >
+            <mat-icon>delete</mat-icon>
+            Supprimer
+          </button>
+        </div>
+      </div>
+
+      <div class="group-info text-sm text-gray-600 mb-2">
+        <div class="flex gap-4">
+          <span>
+            <mat-icon class="text-sm align-middle">label</mat-icon>
+            {{ group.annotations.length }} annotation(s)
+          </span>
+          <span>
+            <mat-icon class="text-sm align-middle">calendar_today</mat-icon>
+            {{ group.createdAt | date : "dd/MM/yyyy HH:mm" }}
+          </span>
+        </div>
+      </div>
+
+      <div class="annotations-summary">
+        <div class="text-sm mb-2">Types d'annotations :</div>
+        <div class="flex flex-wrap gap-2">
+          @for (type of getAnnotationTypes(group.annotations); track type) {
+          <span
+            class="type-badge px-2 py-1 rounded text-xs"
+            [style.background-color]="getTypeColor(type)"
+          >
+            {{ type }} ({{ countAnnotationsByType(group.annotations, type) }})
+          </span>
+          }
+        </div>
+      </div>
+
+      @if (hasMetadata(group.annotations)) {
+      <div class="metadata-summary mt-2 text-sm">
+        <div class="mb-1">Métadonnées :</div>
+        <div class="grid grid-cols-2 gap-2">
+          @if (hasLabels(group.annotations)) {
+          <div class="metadata-item">
+            <mat-icon class="text-sm align-middle">local_offer</mat-icon>
+            Labels: {{ getUniqueLabelsCount(group.annotations) }}
+          </div>
+          } @if (hasKeywords(group.annotations)) {
+          <div class="metadata-item">
+            <mat-icon class="text-sm align-middle">key</mat-icon>
+            Keywords: {{ getUniqueKeywordsCount(group.annotations) }}
+          </div>
+          }
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+  } @else {
+  <p class="text-gray-500">Aucun groupe d'annotations sauvegardé</p>
+  }
+</div>

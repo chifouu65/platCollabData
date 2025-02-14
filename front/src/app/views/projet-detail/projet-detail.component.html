@@ -1,1 +1,122 @@
-<p>projet-detail works! {{ id() }}</p>
+<div class="container">
+  <div class="flex justify-between items-center mb-4">
+    <h2>{{ isEditMode() ? "Modifier" : "Créer" }} un projet</h2>
+  </div>
+
+  <app-project-form
+    [project]="project.value()"
+    (save)="saveProject($event)"
+    (cancel)="back()"
+    (delete)="deleteProject()"
+  />
+
+  @if(isEditMode()) {
+  <app-annotations [projectId]="id()"></app-annotations>
+  }
+</div>
+
+<button (click)="back()">Retour</button>
+
+<div
+  class="mb-4"
+  *ngFor="let dataset of form.get('datasets').controls; let i = index"
+>
+  <div [formGroupName]="i" class="border p-4 rounded mb-2">
+    <div class="flex justify-between mb-2">
+      <h3 class="text-lg font-semibold">Dataset {{ i + 1 }}</h3>
+      <button
+        type="button"
+        (click)="removeDataset(i)"
+        class="text-red-500 hover:text-red-700"
+      >
+        Supprimer
+      </button>
+    </div>
+
+    <div class="mb-2">
+      <label class="block text-sm font-medium mb-1">Type</label>
+      <select formControlName="type" class="w-full p-2 border rounded">
+        <option value="text">Texte</option>
+        <option value="image">Image</option>
+        <option value="audio">Audio</option>
+        <option value="video">Vidéo</option>
+      </select>
+    </div>
+
+    @if (dataset.get('type')?.value !== 'text') {
+    <div class="mb-2">
+      <label class="block text-sm font-medium mb-1">URL</label>
+      <div class="flex gap-2">
+        <input
+          type="url"
+          formControlName="url"
+          class="flex-1 p-2 border rounded"
+          [placeholder]="'URL du fichier ' + dataset.get('type')?.value"
+        />
+
+        @if (dataset.get('type')?.value === 'audio' ||
+        dataset.get('type')?.value === 'video') {
+        <div class="relative">
+          <input
+            type="file"
+            [accept]="
+              dataset.get('type')?.value === 'audio' ? 'audio/*' : 'video/*'
+            "
+            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            (change)="onFileSelected($event, i)"
+          />
+          <button
+            type="button"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Upload
+          </button>
+        </div>
+        }
+      </div>
+      @if (uploadProgress[i]) {
+      <div class="mt-2">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div
+            class="bg-blue-600 h-2.5 rounded-full"
+            [style.width]="uploadProgress[i] + '%'"
+          ></div>
+        </div>
+        <p class="text-sm text-gray-600 mt-1">
+          Upload en cours: {{ uploadProgress[i] }}%
+        </p>
+      </div>
+      }
+    </div>
+    } @if (dataset.get('type')?.value === 'text' || dataset.get('type')?.value
+    === 'audio' || dataset.get('type')?.value === 'video') {
+    <div class="mb-2">
+      <label class="block text-sm font-medium mb-1">
+        @switch (dataset.get('type')?.value) { @case ('text') { Texte } @case
+        ('audio') { Transcription audio } @case ('video') { Description vidéo }
+        }
+      </label>
+      <textarea
+        formControlName="texte"
+        class="w-full p-2 border rounded"
+        rows="3"
+        [placeholder]="
+          dataset.get('type')?.value === 'text'
+            ? 'Entrez votre texte'
+            : 'Ajoutez une description ou transcription'
+        "
+      ></textarea>
+    </div>
+    }
+
+    <div class="mb-2">
+      <label class="block text-sm font-medium mb-1">Métadonnées (JSON)</label>
+      <textarea
+        formControlName="metadata"
+        class="w-full p-2 border rounded"
+        rows="3"
+        placeholder='{"key": "value"}'
+      ></textarea>
+    </div>
+  </div>
+</div>

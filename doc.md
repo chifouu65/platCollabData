@@ -11,26 +11,29 @@ De nombreuses entreprises et laboratoires ont besoin de jeux de données annoté
 - **Création de Projets** : Permettre aux utilisateurs de créer des projets (ex. : “Classification d’images de fruits”, “Analyse de sentiments de tweets”, etc.).
 - **Import de Datasets** : Fonctionnalité pour importer des datasets (images, fichiers audio, textes, etc.).
 
-### 2. Interface d’Annotation Avancée
+### 2. Interface d’Annotation Avancée : OK
 
 - **Outils d'Annotation** : Outils pour dessiner des bounding boxes, polygon masks, highlights de texte, sélection de mots-clés.
 - **Ajout de Métadonnées** : Possibilité d’ajouter des métadonnées (labels multiples, niveaux de confiance, etc.).
 
-### 3. Collaboration en Équipe
+### 3. Collaboration en Équipe : OK
 
 - **Assignation des Tâches** : Qui annote quel lot de données ?
 - **Suivi d’Avancement** : Statistiques en temps réel sur le nombre d’images/textes annotés et la progression.
 - **Système de Commentaires** : Discussions autour des annotations (ex. : “Je pense que ce fruit est mal classé”).
 
-### 4. Contrôle de Qualité et Validations
+### 4. Contrôle de Qualité et Validations : KO
 
 - **Double ou Triple Annotation** : Plusieurs personnes annotent la même donnée pour vérifier la cohérence.
 - **Statistiques de Fiabilité** : Mesure des écarts de label par annotateur.
 - **Workflow de Relecture** : Pour repérer et corriger les désaccords.
 
-### 5. Export et Intégration ML
+### 5. Export et Intégration ML : OK
 
 - **Formats d'Exportation** : Export des annotations dans divers formats (COCO, Pascal VOC, CSV, JSON).
+
+: OK
+
 - **Intégration avec des Frameworks de ML** : Intégration possible avec TensorFlow, PyTorch pour un pipeline complet.
 
 ## Tech Stack

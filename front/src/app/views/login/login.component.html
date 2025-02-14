@@ -1,1 +1,48 @@
-<p>login works!</p>
+<!-- front/src/app/views/main/main.component.html -->
+<form
+  appForm
+  class="flex justify-center flex-col items-center mt-4"
+  [formValue]="formValues"
+  (ngSubmit)="submit()"
+>
+  <div class="flex flex-col gap-4">
+    <mat-form-field class="w-48">
+      <input
+        matInput
+        #newLabel
+        type="text"
+        id="username"
+        [(ngModel)]="formValues().username"
+        name="username"
+        required
+        aria-describedby="usernameError"
+        placeholder="Username"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="w-48">
+      <input
+        matInput
+        #newLabel
+        type="password"
+        id="password"
+        [(ngModel)]="formValues().password"
+        name="password"
+        required
+        placeholder="Password"
+        aria-describedby="passwordError"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button type="submit">Connexion</button>
+  </div>
+</form>
+
+<!-- Optional: Add a section for displaying a success message after submission -->
+<div *ngIf="formSubmitted()" class="success-message">
+  Form submitted successfully!
+  <br />
+  {{ formSubmitted() }}
+</div>

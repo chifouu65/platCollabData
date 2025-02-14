@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6353b6f9-99f5-4f48-bc0f-5478f597433b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/platCollabData.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/.postcssrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/components/project-form/dataset/dataset.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/components/project-form/dataset/dataset.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/components/project-form/dataset/dataset.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/components/project-form/dataset/dataset.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/directives/form.directive.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/directives/form.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/models/user.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/annotation.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/annotation.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/auth.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/user.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/app/views/annotations/canvas.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back" beforeDir="false" afterPath="$PROJECT_DIR$/back" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/components/layout/layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/components/layout/layout.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/components/layout/layout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/components/layout/layout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/components/project-form/project-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/components/project-form/project-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/components/project-form/project-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/components/project-form/project-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/models/create-project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/models/create-project.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/models/project.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/models/project.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/services/projet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/services/projet.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/annotations/annotations.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/annotations/annotations.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/annotations/annotations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/annotations/annotations.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/annotations/annotations.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/annotations/annotations.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/login/login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/main/main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/main/main.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/main/main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/main/main.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/projet-detail/projet-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/projet-detail/projet-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/projet-detail/projet-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/projet-detail/projet-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/projet-list/projet-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/projet-list/projet-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/projet-list/projet-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/projet-list/projet-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/views/projet-list/projet-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/views/projet-list/projet-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2szj8LZWz06dkLasdizyf1mn4XM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6353b6f9-99f5-4f48-bc0f-5478f597433b" name="Changes" comment="" />
+      <created>1739465162485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739465162485</updated>
+      <workItem from="1739465164014" duration="38000" />
+      <workItem from="1739540995730" duration="23000" />
+    </task>
+    <servers />
+  </component>
+</project>
